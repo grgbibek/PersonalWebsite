@@ -1,0 +1,55 @@
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+.background-effects {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  animation: float 20s infinite ease-in-out alternate;
+}
+
+.primary-orb {
+  top: -10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: var(--primary-color);
+}
+
+.secondary-orb {
+  bottom: -10%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: var(--secondary-color);
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-50px, 50px) scale(1.1);
+  }
+  66% {
+    transform: translate(50px, -50px) scale(0.9);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
