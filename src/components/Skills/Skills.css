@@ -56,8 +56,21 @@
   box-shadow: 0 4px 10px rgba(56, 189, 248, 0.3);
 }
 
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 576px) {
   .skills-grid {
     grid-template-columns: 1fr;
+    margin-top: 2rem;
+  }
+  
+  .skill-category {
+    padding: 1.5rem;
   }
 }
+

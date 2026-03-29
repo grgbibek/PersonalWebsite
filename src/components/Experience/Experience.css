@@ -131,6 +131,7 @@
   
   .timeline-item {
     padding-left: 45px;
+    margin-bottom: 2.5rem;
   }
   
   .timeline-content {
@@ -138,7 +139,7 @@
   }
   
   .timeline-role {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
   
   .timeline-company {
@@ -147,3 +148,26 @@
     width: 100%;
   }
 }
+
+@media (max-width: 480px) {
+  .timeline-item {
+    padding-left: 35px;
+  }
+  
+  .timeline::before {
+    left: 10px;
+  }
+  
+  .timeline-dot {
+    left: -2px;
+  }
+  
+  .timeline-content {
+    padding: 1.25rem 1rem;
+  }
+  
+  .timeline-content::before {
+    display: none; /* Remove arrow on very small screens to save space */
+  }
+}
+

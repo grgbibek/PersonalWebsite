@@ -173,13 +173,37 @@
 @media (max-width: 992px) {
   .interests-wrapper {
     grid-template-columns: 1fr;
-    gap: 5rem;
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .interest-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .artistic-gallery {
+    height: 450px;
   }
 }
 
 @media (max-width: 576px) {
   .artistic-gallery {
-    height: 400px;
-    transform: scale(0.85);
+    height: 380px;
+    transform: scale(0.8);
+    margin: -20px 0;
+  }
+  
+  .interest-header h3 {
+    font-size: 1.3rem;
   }
 }
+
+@media (max-width: 400px) {
+  .artistic-gallery {
+    height: 320px;
+    transform: scale(0.65);
+    margin: -50px 0;
+  }
+}
+

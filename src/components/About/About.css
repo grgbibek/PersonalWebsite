@@ -82,3 +82,18 @@
   color: var(--text-secondary);
   font-size: 0.95rem;
 }
+@media (max-width: 768px) {
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-text, .about-card {
+    padding: 1.5rem;
+  }
+  
+  .about-header h3 {
+    font-size: 1.3rem;
+  }
+}

@@ -30,7 +30,19 @@
   font-weight: 800;
   color: var(--text-primary);
   z-index: 1001;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 }
+
+.logo-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 8px; /* Subtle rounding if it's square, or use '50%' for a full circle */
+  /* If the image has a background that isn't transparent, we could add filters or backgrounds here */
+}
+
 
 .nav-menu ul {
   display: flex;

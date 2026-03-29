@@ -30,6 +30,7 @@ const Navbar = () => {
       <div className="container nav-container">
         <a href="#home" className="logo">
           Bibek<span className="highlight">.</span>
+          <img src="/favicon.png" alt="Bibek's Logo" className="logo-img" />
         </a>
 
         <nav className={`nav-menu ${menuOpen ? 'open' : ''}`}>
