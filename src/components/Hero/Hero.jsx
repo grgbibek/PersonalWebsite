@@ -43,8 +43,8 @@ const Hero = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { type: "spring", stiffness: 100, damping: 10 }
     }
@@ -62,10 +62,10 @@ const Hero = () => {
             <motion.span variants={itemVariants} className="greeting">Hello, I'm</motion.span>
             <motion.h1 variants={itemVariants} className="name">Bibek Gurung</motion.h1>
             <motion.h2 variants={itemVariants} className="title highlight">Senior Software Engineer</motion.h2>
-            
+
             <motion.p variants={itemVariants} className="summary">
-              Experienced .NET Engineer with 8+ years driving scalable software solutions. 
-              Passionate about full-stack development, cloud architecture, and building 
+              Experienced .NET Engineer with 8+ years driving scalable software solutions.
+              Passionate about full-stack development, cloud architecture, and building
               high-performance applications.
             </motion.p>
 
@@ -98,8 +98,8 @@ const Hero = () => {
             </motion.div>
           </motion.div>
         </div>
-        
-        <motion.div 
+
+        <motion.div
           className="hero-image-container"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -107,10 +107,10 @@ const Hero = () => {
         >
           <div className="profile-image-wrapper">
             <AnimatePresence mode="wait">
-              <motion.img 
+              <motion.img
                 key={currentImageIndex}
-                src={images[currentImageIndex]} 
-                alt="Bibek Gurung" 
+                src={images[currentImageIndex]}
+                alt="Bibek Gurung"
                 className="hero-profile-img"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -118,9 +118,7 @@ const Hero = () => {
                 transition={{ duration: 0.8 }}
               />
             </AnimatePresence>
-            <div className="floating-badge glass-panel">
-              <span className="badge-text">8+ Years Experience</span>
-            </div>
+
           </div>
         </motion.div>
       </div>

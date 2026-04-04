@@ -6,12 +6,37 @@ import './Navbar.css';
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = ['home', 'about', 'experience', 'interests', 'skills', 'education', 'contact'];
+    const navHeight = 80;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      let current = sectionIds[0];
+
+      sectionIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (el.offsetTop - navHeight - 10 <= scrollY) {
+          current = id;
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // set on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -42,9 +67,9 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <a 
-                  href={link.href} 
-                  className="nav-link"
+                <a
+                  href={link.href}
+                  className={`nav-link${activeSection === link.href.replace('#', '') ? ' active' : ''}`}
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.name}

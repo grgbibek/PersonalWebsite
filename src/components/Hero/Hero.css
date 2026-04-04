@@ -129,23 +129,7 @@
   z-index: 1;
 }
 
-.floating-badge {
-  position: absolute;
-  bottom: 40px;
-  left: -30px;
-  padding: 1rem 1.5rem;
-  z-index: 5;
-  border-left: 4px solid var(--primary-color);
-  animation: float 6s infinite ease-in-out;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
 
-.badge-text {
-  font-weight: 700;
-  color: var(--text-primary);
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.1rem;
-}
 
 @media (max-width: 992px) {
   .hero-container {
@@ -179,15 +163,15 @@
   .hero-section {
     padding-top: 100px;
   }
-  
+
   .name {
     font-size: 2.8rem;
   }
-  
+
   .title {
     font-size: 1.6rem;
   }
-  
+
   .hero-actions {
     flex-direction: column;
     width: 100%;
@@ -201,15 +185,5 @@
   .profile-image-wrapper {
     max-width: 350px;
     margin: 0 auto;
-  }
-  
-  .floating-badge {
-    left: -10px;
-    bottom: -20px;
-    padding: 0.8rem 1.2rem;
-  }
-  
-  .badge-text {
-    font-size: 0.95rem;
   }
 }
