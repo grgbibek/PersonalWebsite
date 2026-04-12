@@ -80,7 +80,7 @@ const Navbar = () => {
         </nav>
 
         <div className="nav-toggle " onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}T
+          {menuOpen ? <X size={28} /> : <Menu size={28} />}
         </div>
       </div>
     </header>
