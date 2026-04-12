@@ -79,7 +79,7 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        <div className="nav-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+        <div className="nav-toggle " onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <X size={28} /> : <Menu size={28} />}
         </div>
       </div>
