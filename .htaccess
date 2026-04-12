@@ -1,0 +1,18 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Enforce HTTPS (Merged from Namecheap's auto-generation)
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-SSL} !on
+  RewriteCond %{HTTP_HOST} ^bibekgrg\.com\.np$ [OR]
+  RewriteCond %{HTTP_HOST} ^www\.bibekgrg\.com\.np$
+  RewriteRule ^(.*)$ "https://bibekgrg.com.np/$1" [R=301,L]
+
+  # React SPA Routing (Prevent 404s on refresh)
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule . /index.html [L]
+</IfModule>

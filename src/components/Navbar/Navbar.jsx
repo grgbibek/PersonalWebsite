@@ -41,7 +41,7 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
+    { name: 'Homes', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Experience', href: '#experience' },
     { name: 'Interests', href: '#interests' },
@@ -61,7 +61,7 @@ const Navbar = () => {
         <nav className={`nav-menu ${menuOpen ? 'open' : ''}`}>
           <ul>
             {navLinks.map((link, index) => (
-              <motion.li 
+              <motion.li
                 key={index}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
