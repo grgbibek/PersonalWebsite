@@ -32,7 +32,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
           # Change 'server-dir' if your site is in a subdirectory (e.g., ./public_html/portfolio/)
-          server-dir: ./bibekgrg.com.np
+          server-dir: ./bibekgrg.com.np/
           dry-run: false
           # It's safer to only upload files that have changed
           dangerous-clean-slate: false
