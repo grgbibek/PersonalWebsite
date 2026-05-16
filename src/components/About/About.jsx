@@ -1,31 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { User, Code, Database, Globe } from 'lucide-react';
+import { usePortfolio } from '../../context/PortfolioContext';
 import './About.css';
 
+const iconMap = {
+  Globe: <Globe size={32} className="about-icon" />,
+  Database: <Database size={32} className="about-icon" />,
+  Code: <Code size={32} className="about-icon" />,
+  User: <User size={32} className="about-icon" />,
+};
+
 const About = () => {
-  const cards = [
-    {
-      icon: <Globe size={32} className="about-icon" />,
-      title: "Full-Stack Development",
-      desc: "Building scalable web applications from frontend to backend using modern technologies like .NET, React, and Angular."
-    },
-    {
-      icon: <Database size={32} className="about-icon" />,
-      title: "Architecture & Microservices",
-      desc: "Designing robust microservices architectures and leveraging message brokers like RabbitMQ to ensure system reliability."
-    },
-    {
-      icon: <Code size={32} className="about-icon" />,
-      title: "Clean Code & Best Practices",
-      desc: "Dedicated to SOLID principles, design patterns (CQRS, Singleton), and writing maintainable, testable code."
-    }
-  ];
+  const { data } = usePortfolio();
+  const about = data?.about || {};
+  const cards = about.cards || [];
+  const paragraphs = about.paragraphs || [];
 
   return (
     <section id="about" className="section">
       <div className="container">
-        <motion.h2 
+        <motion.h2
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +31,7 @@ const About = () => {
         </motion.h2>
 
         <div className="about-content">
-          <motion.div 
+          <motion.div
             className="about-text glass-panel"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -47,27 +42,22 @@ const About = () => {
               <User size={24} className="highlight" />
               <h3>Professional Summary</h3>
             </div>
-            <p>
-              I am an experienced Senior .NET Engineer with over 8 years of proven expertise in software development using Microsoft .NET technologies. 
-              My background encompasses the entire full-stack spectrum, bridging heavy lifting on the backend with responsive, user-friendly frontend interfaces.
-            </p>
-            <p>
-              I take pride in delivering high-quality, scalable solutions and thriving in leadership roles, where I mentor teams and ensure effective communication. 
-              Always enthusiastic about staying updated on industry trends, I continuously seek ways to enhance our development processes and product quality.
-            </p>
+            {paragraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
           </motion.div>
 
           <div className="about-cards">
             {cards.map((card, index) => (
-              <motion.div 
-                key={index}
+              <motion.div
+                key={card.id || index}
                 className="about-card glass-panel"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }}
               >
-                {card.icon}
+                {iconMap[card.iconName] || <Globe size={32} className="about-icon" />}
                 <h4>{card.title}</h4>
                 <p>{card.desc}</p>
               </motion.div>

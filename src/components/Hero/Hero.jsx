@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import { usePortfolio } from '../../context/PortfolioContext';
 import './Hero.css';
 
 const LinkedinIcon = ({ size }) => (
@@ -20,8 +21,11 @@ const InstagramIcon = ({ size }) => (
 );
 
 const Hero = () => {
+  const { data } = usePortfolio();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const images = ["/photo1.jpg", "/photo2.jpg", "/photo3.jpg"];
+
+  const hero = data?.hero || {};
+  const images = hero.profileImages || ["/photo1.jpg", "/photo2.jpg", "/photo3.jpg"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -59,24 +63,22 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
           >
-            <motion.span variants={itemVariants} className="greeting">Hello, I'm</motion.span>
-            <motion.h1 variants={itemVariants} className="name">Bibek Gurung</motion.h1>
-            <motion.h2 variants={itemVariants} className="title highlight">Senior Software Engineer</motion.h2>
+            <motion.span variants={itemVariants} className="greeting">{hero.greeting || "Hello, I'm"}</motion.span>
+            <motion.h1 variants={itemVariants} className="name">{hero.name || "Bibek Gurung"}</motion.h1>
+            <motion.h2 variants={itemVariants} className="title highlight">{hero.title || "Senior Software Engineer"}</motion.h2>
 
             <motion.p variants={itemVariants} className="summary">
-              Experienced .NET Engineer with 8+ years driving scalable software solutions.
-              Passionate about full-stack development, cloud architecture, and building
-              high-performance applications.
+              {hero.summary}
             </motion.p>
 
             <motion.div variants={itemVariants} className="contact-info">
               <div className="info-item">
                 <MapPin size={18} className="info-icon" />
-                <span>Kathmandu, Nepal</span>
+                <span>{hero.location}</span>
               </div>
               <div className="info-item">
                 <Phone size={18} className="info-icon" />
-                <span>+971 9841543104</span>
+                <span>{hero.phone}</span>
               </div>
             </motion.div>
 
@@ -86,15 +88,21 @@ const Hero = () => {
             </motion.div>
 
             <motion.div variants={itemVariants} className="social-links">
-              <a href="https://www.linkedin.com/in/bibekgurung-" target="_blank" rel="noopener noreferrer" className="social-icon">
-                <LinkedinIcon size={24} />
-              </a>
-              <a href="https://www.instagram.com/bbek__g/" target="_blank" rel="noopener noreferrer" className="social-icon">
-                <InstagramIcon size={24} />
-              </a>
-              <a href="mailto:grgbibek22@gmail.com" className="social-icon">
-                <Mail size={24} />
-              </a>
+              {hero.linkedinUrl && (
+                <a href={hero.linkedinUrl} target="_blank" rel="noopener noreferrer" className="social-icon">
+                  <LinkedinIcon size={24} />
+                </a>
+              )}
+              {hero.instagramUrl && (
+                <a href={hero.instagramUrl} target="_blank" rel="noopener noreferrer" className="social-icon">
+                  <InstagramIcon size={24} />
+                </a>
+              )}
+              {hero.email && (
+                <a href={`mailto:${hero.email}`} className="social-icon">
+                  <Mail size={24} />
+                </a>
+              )}
             </motion.div>
           </motion.div>
         </div>
@@ -110,7 +118,7 @@ const Hero = () => {
               <motion.img
                 key={currentImageIndex}
                 src={images[currentImageIndex]}
-                alt="Bibek Gurung"
+                alt={hero.name || "Profile"}
                 className="hero-profile-img"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -118,7 +126,6 @@ const Hero = () => {
                 transition={{ duration: 0.8 }}
               />
             </AnimatePresence>
-
           </div>
         </motion.div>
       </div>
