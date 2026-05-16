@@ -1,0 +1,192 @@
+{
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Bibek Gurung",
+    "title": "Senior Software Engineer",
+    "summary": "Experienced .NET Engineer with 8+ years driving scalable software solutions. Passionate about full-stack development, cloud architecture, and building high-performance applications.",
+    "location": "Kathmandu, Nepal",
+    "phone": "+971 9841543104",
+    "email": "grgbibek22@gmail.com",
+    "linkedinUrl": "https://www.linkedin.com/in/bibekgurung-",
+    "instagramUrl": "https://www.instagram.com/bbek__g/",
+    "profileImages": ["/photo1.jpg", "/photo2.jpg", "/photo3.jpg"]
+  },
+  "about": {
+    "paragraphs": [
+      "I am an experienced Senior .NET Engineer with over 8 years of proven expertise in software development using Microsoft .NET technologies. My background encompasses the entire full-stack spectrum, bridging heavy lifting on the backend with responsive, user-friendly frontend interfaces.",
+      "I take pride in delivering high-quality, scalable solutions and thriving in leadership roles, where I mentor teams and ensure effective communication. Always enthusiastic about staying updated on industry trends, I continuously seek ways to enhance our development processes and product quality."
+    ],
+    "cards": [
+      {
+        "id": 1,
+        "iconName": "Globe",
+        "title": "Full-Stack Development",
+        "desc": "Building scalable web applications from frontend to backend using modern technologies like .NET, React, and Angular."
+      },
+      {
+        "id": 2,
+        "iconName": "Database",
+        "title": "Architecture & Microservices",
+        "desc": "Designing robust microservices architectures and leveraging message brokers like RabbitMQ to ensure system reliability."
+      },
+      {
+        "id": 3,
+        "iconName": "Code",
+        "title": "Clean Code & Best Practices",
+        "desc": "Dedicated to SOLID principles, design patterns (CQRS, Singleton), and writing maintainable, testable code."
+      }
+    ]
+  },
+  "experiences": [
+    {
+      "id": 1,
+      "role": "Senior Software Engineer",
+      "company": "Infinite Computer Solutions",
+      "period": "June 2023 – Present",
+      "achievements": [
+        "Managed customization of clients' systems from requirements to deployment.",
+        "Developed and implemented microservices architecture for applications, enhancing scalability.",
+        "Integrated RabbitMQ messaging system for seamless communication between microservices.",
+        "Implemented secure RESTful APIs with .NET Core 6.",
+        "Utilized Angular 14 to develop user-friendly front-end interfaces.",
+        "Implemented CQRS pattern to optimize performance and scalability.",
+        "Integrated Redis for in-memory caching, reducing database load significantly.",
+        "Used Kibana for visualizing and analyzing data to find error logs efficiently."
+      ]
+    },
+    {
+      "id": 2,
+      "role": "Senior Software Engineer",
+      "company": "Vesuvio Labs",
+      "period": "February 2021 – March 2023",
+      "achievements": [
+        "Oversee the entire software development lifecycle, ensuring alignment with business objectives.",
+        "Led Azure CI/CD deployment for seamless software delivery.",
+        "Led Upgrade of applications from ASP.NET Core 2.1 to ASP.NET Core 6.",
+        "Optimized SQL Server databases by adding indexes and rewriting complex joins.",
+        "Implemented design patterns (Singleton, Factory) and followed SOLID principles.",
+        "Developed comprehensive unit tests using NUnit and Moq frameworks.",
+        "Implemented Route Protection (CanActivate, CanLoad) in Angular to secure application routes.",
+        "Minimized JavaScript and CSS files, improving page load time by 40%."
+      ]
+    },
+    {
+      "id": 3,
+      "role": "Mid Software Engineer (.NET)",
+      "company": "Inficare Pvt Ltd",
+      "period": "August 2019 - February 2021",
+      "achievements": [
+        "Led the migration of applications from Classic ASP to ASP.NET MVC 5.",
+        "Demonstrated proficiency in C#, ASP.NET, .NET Core, MVC, Web API, EF, and SQL Server.",
+        "Investigated and resolved complex technical issues, performing root cause analyses.",
+        "Batched multiple API calls into a single request, improving data synchronization speed by 50%."
+      ]
+    },
+    {
+      "id": 4,
+      "role": "Jr Software Engineer (.NET)",
+      "company": "Inficare Pvt Ltd",
+      "period": "August 2018 - August 2019",
+      "achievements": [
+        "Assisted in designing, developing, and maintaining .NET applications.",
+        "Debugged applications to resolve logical and programming issues.",
+        "Contributed to fixing design-related issues improving usability.",
+        "Assisted in testing software functionality and performance to ensure quality."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "iconName": "Database",
+      "title": "Backend Development",
+      "skills": ["C#", "ASP.NET MVC / CORE", "Entity Framework", "Dapper", "REST API", "Microservices"]
+    },
+    {
+      "id": 2,
+      "iconName": "Layers",
+      "title": "Database & Caching",
+      "skills": ["SQL Server", "MySQL", "Postgres", "Redis", "RabbitMQ"]
+    },
+    {
+      "id": 3,
+      "iconName": "Cpu",
+      "title": "Cloud & Serverless",
+      "skills": ["Azure (App Service, Key Vault)", "Azure Service Bus / Storage", "AWS Lambda", "AWS S3 / Event Bridge"]
+    },
+    {
+      "id": 4,
+      "iconName": "Smartphone",
+      "title": "Frontend Development",
+      "skills": ["React", "Angular", "VueJS", "Javascript / ES6", "Typescript", "HTML / CSS / Tailwind"]
+    },
+    {
+      "id": 5,
+      "iconName": "RefreshCw",
+      "title": "DevOps & CI/CD",
+      "skills": ["Azure CI/CD", "Bamboo", "Octopus"]
+    },
+    {
+      "id": 6,
+      "iconName": "Code2",
+      "title": "Testing Frameworks",
+      "skills": ["MS Test", "NUnit", "Moq", "Unit Testing"]
+    },
+    {
+      "id": 7,
+      "iconName": "GitBranch",
+      "title": "Version Control",
+      "skills": ["Git", "SVN", "TFS"]
+    },
+    {
+      "id": 8,
+      "iconName": "Wrench",
+      "title": "Methodologies & Tools",
+      "skills": ["Agile (Scrum/Kanban)", "SAFe Framework", "Jira", "Trello", "Redmine"]
+    }
+  ],
+  "education": {
+    "degree": "Bachelor of Science in Computer Science and Information Technology",
+    "institution": "Tribhuvan University",
+    "period": "2013 - 2017",
+    "description": "Foundation in software engineering, algorithms, data structures, and computer architecture."
+  },
+  "certifications": [
+    {
+      "id": 1,
+      "name": "SAFe 6 Practitioner",
+      "provider": "Scaled Agile Framework"
+    },
+    {
+      "id": 2,
+      "name": "Build App using Angular and .NET Core",
+      "provider": "Udemy (35hrs course)"
+    }
+  ],
+  "interests": [
+    {
+      "id": 1,
+      "iconName": "Mic2",
+      "subIconName": "Music",
+      "title": "Music & Singing",
+      "description": "When I'm not writing code, you can often find me immersed in music. I genuinely love singing and enjoy exploring different melodies in my free time. It's my favorite way to recharge and stay creative!"
+    },
+    {
+      "id": 2,
+      "iconName": "Plane",
+      "subIconName": "Navigation",
+      "title": "Traveling the World",
+      "description": "I'm a passionate traveler constantly looking for the next adventure. Whether it's exploring new cultures, trying exotic cuisines, or just enjoying nature, traveling broadens my perspective and inspires my day-to-day life."
+    }
+  ],
+  "contact": {
+    "location": "Kathmandu, Nepal",
+    "phone": "+971 9841543104",
+    "email": "grgbibek22@gmail.com",
+    "extras": [
+      "Familiar with Logistics, Fintech, and Insurtech Systems.",
+      "Proficient in analyzing complex problems & logical solutions.",
+      "Quickly adapt to innovative technologies & methodologies."
+    ]
+  }
+}

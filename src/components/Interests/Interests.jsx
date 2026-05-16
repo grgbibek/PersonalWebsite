@@ -1,9 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mic2, Plane, Navigation, Music } from 'lucide-react';
+import { usePortfolio } from '../../context/PortfolioContext';
 import './Interests.css';
 
+const iconMap = {
+  Mic2: (props) => <Mic2 {...props} />,
+  Plane: (props) => <Plane {...props} />,
+  Navigation: (props) => <Navigation {...props} />,
+  Music: (props) => <Music {...props} />,
+};
+
 const Interests = () => {
+  const { data } = usePortfolio();
+  const interests = data?.interests || [];
+
   return (
     <section id="interests" className="section">
       <div className="container">
@@ -19,45 +30,29 @@ const Interests = () => {
 
         <div className="interests-wrapper">
           <div className="interests-text-content">
-            <motion.div
-              className="interest-card glass-panel"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="interest-header">
-                <div className="interest-icon-wrapper">
-                  <Mic2 size={24} className="interest-icon" />
-                  <Music size={16} className="interest-sub-icon" />
-                </div>
-                <h3>Music & Singing</h3>
-              </div>
-              <p>
-                When I'm not writing code, you can often find me immersed in music. I genuinely love singing
-                and enjoy exploring different melodies in my free time. It's my favorite way to recharge and stay creative!
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="interest-card glass-panel"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="interest-header">
-                <div className="interest-icon-wrapper">
-                  <Plane size={24} className="interest-icon" />
-                  <Navigation size={16} className="interest-sub-icon" />
-                </div>
-                <h3>Traveling the World</h3>
-              </div>
-              <p>
-                I'm a passionate traveler constantly looking for the next adventure. Whether it's exploring new cultures,
-                trying exotic cuisines, or just enjoying nature, traveling broadens my perspective and inspires my day-to-day life.
-              </p>
-            </motion.div>
+            {interests.map((interest, index) => {
+              const MainIcon = iconMap[interest.iconName];
+              const SubIcon = iconMap[interest.subIconName];
+              return (
+                <motion.div
+                  key={interest.id || index}
+                  className="interest-card glass-panel"
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                >
+                  <div className="interest-header">
+                    <div className="interest-icon-wrapper">
+                      {MainIcon && <MainIcon size={24} className="interest-icon" />}
+                      {SubIcon && <SubIcon size={16} className="interest-sub-icon" />}
+                    </div>
+                    <h3>{interest.title}</h3>
+                  </div>
+                  <p>{interest.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
 
           <motion.div

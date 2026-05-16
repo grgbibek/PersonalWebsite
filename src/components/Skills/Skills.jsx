@@ -1,59 +1,29 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Layers, Database, Code2, Cpu, Wrench, RefreshCw, Smartphone, GitBranch } from 'lucide-react';
+import { usePortfolio } from '../../context/PortfolioContext';
 import './Skills.css';
 
+const iconMap = {
+  Database: <Database className="skill-icon" size={24} />,
+  Layers: <Layers className="skill-icon" size={24} />,
+  Cpu: <Cpu className="skill-icon" size={24} />,
+  Smartphone: <Smartphone className="skill-icon" size={24} />,
+  RefreshCw: <RefreshCw className="skill-icon" size={24} />,
+  Code2: <Code2 className="skill-icon" size={24} />,
+  GitBranch: <GitBranch className="skill-icon" size={24} />,
+  Wrench: <Wrench className="skill-icon" size={24} />,
+};
+
 const Skills = () => {
-  const skillCategories = [
-    {
-      title: "Backend Development",
-      icon: <Database className="skill-icon" size={24} />,
-      skills: ["C#", "ASP.NET MVC / CORE", "Entity Framework", "Dapper", "REST API", "Microservices"]
-    },
-    {
-      title: "Database & Caching",
-      icon: <Layers className="skill-icon" size={24} />,
-      skills: ["SQL Server", "MySQL", "Postgres", "Redis", "RabbitMQ"]
-    },
-    {
-      title: "Cloud & Serverless",
-      icon: <Cpu className="skill-icon" size={24} />,
-      skills: ["Azure (App Service, Key Vault)", "Azure Service Bus / Storage", "AWS Lambda", "AWS S3 / Event Bridge"]
-    },
-    {
-      title: "Frontend Development",
-      icon: <Smartphone className="skill-icon" size={24} />,
-      skills: ["React", "Angular", "VueJS", "Javascript / ES6", "Typescript", "HTML / CSS / Tailwind"]
-    },
-    {
-      title: "DevOps & CI/CD",
-      icon: <RefreshCw className="skill-icon" size={24} />,
-      skills: ["Azure CI/CD", "Bamboo", "Octopus"]
-    },
-    {
-      title: "Testing Frameworks",
-      icon: <Code2 className="skill-icon" size={24} />,
-      skills: ["MS Test", "NUnit", "Moq", "Unit Testing"]
-    },
-    {
-      title: "Version Control",
-      icon: <GitBranch className="skill-icon" size={24} />,
-      skills: ["Git", "SVN", "TFS"]
-    },
-    {
-      title: "Methodologies & Tools",
-      icon: <Wrench className="skill-icon" size={24} />,
-      skills: ["Agile (Scrum/Kanban)", "SAFe Framework", "Jira", "Trello", "Redmine"]
-    }
-  ];
+  const { data } = usePortfolio();
+  const skillCategories = data?.skills || [];
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
+      transition: { staggerChildren: 0.1 }
     }
   };
 
@@ -65,7 +35,7 @@ const Skills = () => {
   return (
     <section id="skills" className="section">
       <div className="container">
-        <motion.h2 
+        <motion.h2
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -75,7 +45,7 @@ const Skills = () => {
           Technical <span className="highlight">Skills</span>
         </motion.h2>
 
-        <motion.div 
+        <motion.div
           className="skills-grid"
           variants={containerVariants}
           initial="hidden"
@@ -83,17 +53,17 @@ const Skills = () => {
           viewport={{ once: true }}
         >
           {skillCategories.map((category, index) => (
-            <motion.div 
-              key={index} 
+            <motion.div
+              key={category.id || index}
               className="skill-category glass-panel"
               variants={itemVariants}
             >
               <div className="category-header">
-                {category.icon}
+                {iconMap[category.iconName] || <Wrench className="skill-icon" size={24} />}
                 <h3>{category.title}</h3>
               </div>
               <ul className="skill-list">
-                {category.skills.map((skill, i) => (
+                {(category.skills || []).map((skill, i) => (
                   <li key={i} className="skill-tag">{skill}</li>
                 ))}
               </ul>

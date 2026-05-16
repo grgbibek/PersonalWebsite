@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail } from 'lucide-react';
+import { usePortfolio } from '../../context/PortfolioContext';
 import './Footer.css';
 
 const LinkedinIcon = ({ size }) => (
@@ -19,30 +20,39 @@ const InstagramIcon = ({ size }) => (
 );
 
 const Footer = () => {
+  const { data } = usePortfolio();
+  const hero = data?.hero || {};
+
   return (
     <footer className="footer section">
       <div className="container">
         <div className="footer-content">
           <div className="footer-logo">
-            <h2>Bibek<span className="highlight">.</span></h2>
-            <p>Senior Software Engineer building scalable, high-performance solutions.</p>
+            <h2>{hero.name?.split(' ')[0] || 'Bibek'}<span className="highlight">.</span></h2>
+            <p>{hero.title || 'Senior Software Engineer'} building scalable, high-performance solutions.</p>
           </div>
-          
+
           <div className="footer-links">
-            <a href="https://www.linkedin.com/in/bibekgurung-" target="_blank" rel="noopener noreferrer" className="footer-icon">
-              <LinkedinIcon size={22} />
-            </a>
-            <a href="https://www.instagram.com/bbek__g/" target="_blank" rel="noopener noreferrer" className="footer-icon">
-              <InstagramIcon size={22} />
-            </a>
-            <a href="mailto:grgbibek22@gmail.com" className="footer-icon">
-              <Mail size={22} />
-            </a>
+            {hero.linkedinUrl && (
+              <a href={hero.linkedinUrl} target="_blank" rel="noopener noreferrer" className="footer-icon">
+                <LinkedinIcon size={22} />
+              </a>
+            )}
+            {hero.instagramUrl && (
+              <a href={hero.instagramUrl} target="_blank" rel="noopener noreferrer" className="footer-icon">
+                <InstagramIcon size={22} />
+              </a>
+            )}
+            {hero.email && (
+              <a href={`mailto:${hero.email}`} className="footer-icon">
+                <Mail size={22} />
+              </a>
+            )}
           </div>
         </div>
-        
+
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Bibek Gurung. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {hero.name || 'Bibek Gurung'}. All rights reserved.</p>
         </div>
       </div>
     </footer>
